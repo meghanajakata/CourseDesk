@@ -1,0 +1,397 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CourseDesk.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CourseDesk.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\css\\Auth.css",
+      "PackagePath": "staticwebassets\\css\\Auth.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\css\\Instructor.css",
+      "PackagePath": "staticwebassets\\css\\Instructor.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\css\\Lessons.css",
+      "PackagePath": "staticwebassets\\css\\Lessons.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\css\\session.css",
+      "PackagePath": "staticwebassets\\css\\session.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\css\\student_courses.css",
+      "PackagePath": "staticwebassets\\css\\student_courses.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\images\\background.jpg",
+      "PackagePath": "staticwebassets\\images\\background.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\images\\background_2",
+      "PackagePath": "staticwebassets\\images"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\images\\e-learning.webp",
+      "PackagePath": "staticwebassets\\images\\e-learning.webp"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\images\\output-onlinepngtools.png",
+      "PackagePath": "staticwebassets\\images\\output-onlinepngtools.png"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\images\\welcome.jpg",
+      "PackagePath": "staticwebassets\\images\\welcome.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\02ff460f-4cc7-4cf2-9e46-a126887c571b.mp4",
+      "PackagePath": "staticwebassets\\lessons\\02ff460f-4cc7-4cf2-9e46-a126887c571b.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\099c9260-340c-4e40-8777-0cb6cfd0d180.mp4",
+      "PackagePath": "staticwebassets\\lessons\\099c9260-340c-4e40-8777-0cb6cfd0d180.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\156223d6-394a-452a-866e-6d7ef398ee81.mp4",
+      "PackagePath": "staticwebassets\\lessons\\156223d6-394a-452a-866e-6d7ef398ee81.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\374c6f53-ee32-46ca-b0a7-635d8a5b153b.mp4",
+      "PackagePath": "staticwebassets\\lessons\\374c6f53-ee32-46ca-b0a7-635d8a5b153b.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\3ff1d1e5-bab3-4900-aeb0-b3256e4bde93.mp4",
+      "PackagePath": "staticwebassets\\lessons\\3ff1d1e5-bab3-4900-aeb0-b3256e4bde93.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\5b02731e-857a-4011-a040-d937ca48f694.mp4",
+      "PackagePath": "staticwebassets\\lessons\\5b02731e-857a-4011-a040-d937ca48f694.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\89528dd9-094c-45f5-8ecb-0876726e52fa.mp4",
+      "PackagePath": "staticwebassets\\lessons\\89528dd9-094c-45f5-8ecb-0876726e52fa.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\9285e9c6-4627-42d4-a98b-61e7200ab846.mp4",
+      "PackagePath": "staticwebassets\\lessons\\9285e9c6-4627-42d4-a98b-61e7200ab846.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\96070093-6854-436e-a270-2d355d143872.mp4",
+      "PackagePath": "staticwebassets\\lessons\\96070093-6854-436e-a270-2d355d143872.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\9fbeaf40-7478-414d-ac9e-740cbf615a67.mp4",
+      "PackagePath": "staticwebassets\\lessons\\9fbeaf40-7478-414d-ac9e-740cbf615a67.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\a58ac35b-6249-4235-ab80-e03fb34b32f5.mp4",
+      "PackagePath": "staticwebassets\\lessons\\a58ac35b-6249-4235-ab80-e03fb34b32f5.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\a5c50974-e81d-4475-ba99-59104e491e99.mp4",
+      "PackagePath": "staticwebassets\\lessons\\a5c50974-e81d-4475-ba99-59104e491e99.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\b7949890-2605-4f8b-a08e-6a784c3915c2.mp4",
+      "PackagePath": "staticwebassets\\lessons\\b7949890-2605-4f8b-a08e-6a784c3915c2.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lessons\\c9023d0b-8ed4-4b14-85ba-7a0617ec0065.mp4",
+      "PackagePath": "staticwebassets\\lessons\\c9023d0b-8ed4-4b14-85ba-7a0617ec0065.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\18e155f7-6bf7-461d-9a89-03fd35fa1e4e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\18e155f7-6bf7-461d-9a89-03fd35fa1e4e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\474df891-233c-4f04-9eff-ed41dc163c80.jpg",
+      "PackagePath": "staticwebassets\\uploads\\474df891-233c-4f04-9eff-ed41dc163c80.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\a42a15c9-3403-4892-bacb-e908df9c6a91.png",
+      "PackagePath": "staticwebassets\\uploads\\a42a15c9-3403-4892-bacb-e908df9c6a91.png"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\asp.net_core.png",
+      "PackagePath": "staticwebassets\\uploads\\asp.net_core.png"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\bdd1d687-6b16-4a8f-b242-8156d6eea9e3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\bdd1d687-6b16-4a8f-b242-8156d6eea9e3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\click_it.jpg",
+      "PackagePath": "staticwebassets\\uploads\\click_it.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\e7eb276c-4c1d-45ec-b159-c33213acf621.png",
+      "PackagePath": "staticwebassets\\uploads\\e7eb276c-4c1d-45ec-b159-c33213acf621.png"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\f6481505-ec65-46ec-83c2-4cb6faddc380.png",
+      "PackagePath": "staticwebassets\\uploads\\f6481505-ec65-46ec-83c2-4cb6faddc380.png"
+    },
+    {
+      "Id": "C:\\Users\\Meghana Jakata\\source\\repos\\CourseDesk\\CourseDesk\\wwwroot\\uploads\\flow_of_fluid.jpg",
+      "PackagePath": "staticwebassets\\uploads\\flow_of_fluid.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CourseDesk.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.CourseDesk.props",
+      "PackagePath": "build\\CourseDesk.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.CourseDesk.props",
+      "PackagePath": "buildMultiTargeting\\CourseDesk.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.CourseDesk.props",
+      "PackagePath": "buildTransitive\\CourseDesk.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

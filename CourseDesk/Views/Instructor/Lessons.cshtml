@@ -1,0 +1,83 @@
+﻿@model CourseDesk.Models.CourseMaterial
+
+@{
+    ViewData["Title"] = "Lessons";
+    Layout = "~/Views/Shared/_Instructor.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+
+        <!-- Include Bootstrap and jQuery -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/css/student_courses.css">
+        <link rel="stylesheet" href="~/css/Lessons.css" />
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/Instructor.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    </head>
+    <body>
+    <h1>@Model.Title</h1>
+    <br />
+    <div class="custom-bg-white" style="padding:20px;">
+        <div style="display:flex;">
+            <div class="col-md-8" id="videoModal">
+                <video id="videoPlayer" controls class="w-100">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <table>
+                <tbody>
+                    @foreach (var item in Model.Lessons)
+                    {
+                        <tr>
+                            <td>
+                                <div class="video-thumbnail" data-video-url="@item.Video_Url">
+                                    <img class="img-thumbnail" src=@Model.ImageUrl alt=@item.Course.Title style="width:250px;">
+                                    <div class="pause-button" onclick="pauseVideo(this)">
+                                        <i class="fa fa-play"></i>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+    
+    <script>
+        $(document).ready(function () {
+            $('.video-thumbnail').click(function () {
+                var videoUrl = $(this).data('video-url');
+                var videoPlayer = document.getElementById('videoPlayer');
+                var videoSource = document.querySelector('#videoPlayer source');
+                console.log("values: videoUrl" + videoUrl + "videoPlayer" + videoPlayer + "videoSource" + videoSource);
+                videoSource.src = videoUrl;
+                videoPlayer.load();
+                videoPlayer.play();
+                // $('#videoModal').modal('show');
+                $('#videoModal').show();
+            });
+        });
+        function pauseVideo(element) {
+            var videoPlayer = document.getElementById('videoPlayer');
+            if (!videoPlayer.paused) {
+                videoPlayer.pause();
+            }
+        }
+    </script>
+    </body>
+</html>
+

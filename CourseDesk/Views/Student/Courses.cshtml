@@ -1,0 +1,139 @@
+﻿@model IEnumerable<CourseDesk.Models.CourseMaterial>
+
+@{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    ViewData["Title"] = "Courses";
+}
+
+<h1>Courses</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <!-- Include Bootstrap and jQuery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/student_courses.css">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#ADEFD1FF">
+
+    <div class="row bg-white" style="display:flex; padding:50px; border-radius:5px;">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-3 col-xs-6" >
+                <div class="img-thumbnail" style="height:210px;">
+                    <img src=@Html.DisplayFor(modelItem => item.ImageUrl) alt="Image" style="width:100%;height:200px;justify-items:center">
+                 </div>
+                <h5 class="header" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <b>@Html.DisplayFor(modelItem => item.Title)</b>
+                </h5>
+                <br>
+                <h5>₹@Html.DisplayFor(modelItem => item.Price)</h5>
+                <div class="cart">
+                    <button class="btn color viewDetailsButton" style="color:white; background-color:#00203FFF;" data-target="#details_@item.Id">View Details</button>
+                </div>
+            </div>
+            
+            <div class="modal" id="details_@item.Id" >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">@Html.DisplayFor(modelItem => item.Title)</h4>
+                            <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Content of your popup -->
+                            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                        </div>
+                        @* <div>@Html.ActionLink("Go to Bag","#Action","#Controller")</div> *@
+                        <div class="modal-footer">
+                            <button type="button" class="btn color addToCartButton" style="color:white; background-color:#00203FFF;" data-hide="#details_@item.Id" data-target="#myModal_@item.Id" data-course-id="@item.Id">Add to Cart</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="myModal_@item.Id">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">@Html.DisplayFor(modelItem => item.Title)</h4>
+                            <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Content of your popup -->
+                            <p class="popup">Waiting.....</p>
+                        </div>
+                        @* <div>@Html.ActionLink("Go to Bag","#Action","#Controller")</div> *@
+                        <div class="modal-footer">
+                            @* <button type="button" class="btn color " data-course-id="@item.Id">Go to Bag </button> *@
+                            <a asp-controller="Carts" asp-action="GoToBag" class="btn color" style="color:white; background-color:#00203FFF;">Go to Bag</a>
+                            <button type="button" class="btn color " style="color:white; background-color:#00203FFF;" data-bs-dismiss="modal">Continue  Shopping </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+   
+
+    <script>
+        $(document).ready(function () {
+            $(".viewDetailsButton").click(function () {
+                // Perform your action by making an AJAX request
+
+                var button = $(this);
+                var modalId = button.data("target");
+                //var popupContent = $(modalId).find(".popupContent");
+                //console.log("Clicked course Id: " + courseId);
+
+                $(modalId).modal("show");
+
+               
+            });
+            
+            $(".addToCartButton").click(function () {
+                var button = $(this);
+                var modalId = button.data("target");
+                var courseId = button.data("course-id");
+                var popupContent = $(modalId).find(".popup");
+                var hideData = button.data("hide");
+                console.log("hide data" + hideData);
+                console.log("show data" + modalId);
+                console.log("Clicked course Id: " + courseId);
+                $(hideData).modal("hide");
+                $(modalId).modal("show");
+
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "CartItems")',
+                    type: 'POST',
+                    data: { id: courseId },
+                    success: function (result) {
+                        // Handle the result from the action, e.g., update content in the modal
+                        // You can also close the modal or perform other actions as needed.
+                        popupContent.text(result.message);
+                    },
+                    error: function (error) {
+                        // Handle errors if the AJAX request fails.
+                        popupContent.text("Error occurred while performing the action.");
+
+                    }
+                });
+            });
+                        
+        });
+    </script>
+
+</body>
+</html>
+
+
+

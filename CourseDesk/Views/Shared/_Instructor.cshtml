@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CourseDesk</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Instructor.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CourseDesk.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" style="background-color:#00203FFF; color:white;">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color:white;" asp-area="" asp-controller="Home" asp-action="Index">CourseDesk</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white; asp-controller="#" asp-action="#">Categories</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav justify-content-center">
+                    <li class="nav-item " sstyle="padding-left:50px;">
+                        <form action="#" method="get" class="form-inline my-2 my-lg-0">
+
+                            <div class="input-group mb-3" style="width:800px; border-radius:50%;">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon"><i class="fa fa-search" style="font-size:25px; color:black;"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon">
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+                <div class="navbar-collapse collapse collapse flex-row-reverse justify-content-between justify-content-between">
+                    <ul class="navbar-nav float-right" style="margin-right:10px;">
+                        @if (Context.Session.GetInt32("user_id") != null)
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-secondary" style="margin-top:5px; margin-right:5px; color:black;" asp-controller="Session" asp-action="Instructor"><small>My Dashboard</small></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user" style="font-size:30px; color:white;"></i>
+                                </a>
+                                <div class="dropdown-menu" style="margin-right:5px; min-width:0px;" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" asp-controller="Session" asp-action="Logout">Logout</a>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link btn btn-secondary" asp-area="" asp-controller="Session" asp-action="Login">Login</a>
+                            </li>
+                            <li class="nav-item" style="margin-left:10px;">
+                                <a class="nav-link btn btn-secondary" asp-area="" asp-controller="Session" asp-action="SignUp">SignUp</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @* <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> *@
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

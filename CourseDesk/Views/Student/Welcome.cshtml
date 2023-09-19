@@ -1,0 +1,72 @@
+﻿@model IEnumerable<CourseDesk.Models.Enrollment>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div style="background-color:white; border-radius:8px; padding:25px;">
+            <h4 style="padding:5px;">My Courses <a asp-controller="Enrollment" asp-action="EnrolledCourses"><i class="fa fa-arrow-right" id="arrow" style="font-size:20px; color:black;"></i></a></h4>
+            <div class="d-flex flex-row justify-content-end">
+                @foreach (var item in Model)
+                {
+                    <div style="display:block;">
+                        <div>
+                            <img class="img-thumbnail" src=@item.Course.ImageUrl alt=@item.Course.Title style="width:250px;height:175px;">                           
+                        </div>
+                        <div class="text-center">
+                            <h5 class="header" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <strong>@Html.DisplayFor(modelItem => item.Course.Title)</strong>
+                            </h5>
+                        </div>
+                    </div>
+                }
+               
+             </div>
+        </div>
+
+        <br />
+        <div>
+            <a class="btn" style="background-color:#00203FFF; color:white;" asp-controller="CourseMaterials" asp-action="StudentCourses">View All Courses</a>
+        </div>
+    </div>
+                    
+
+    <div class="col-md-4" style="background-color:white; border-radius:8px;">
+        <div class="text-center">
+            <h4>Statistics</h4>
+            <canvas id="myPieChart" width="200" height="200"></canvas>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Get the canvas element
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+
+        // Define the data for the pie chart
+        var data = {
+            labels: ['Not Enrolled'],
+            datasets: [{
+                data: [100], // Specify data values
+                backgroundColor: ['gray'], // Specify colors
+            }]
+        };
+
+        // Create a new pie chart
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+        });
+    </script>
+}

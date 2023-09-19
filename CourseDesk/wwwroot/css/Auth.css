@@ -1,0 +1,52 @@
+﻿body {
+	background-image: url("../images/output-onlinepngtools.png");
+	background-repeat: repeat-y;
+	background-size: cover;
+	background-attachment: scroll;
+}
+
+.heading
+{
+	text-align:center;
+}
+
+.signup
+{
+	display:none;
+}
+
+
+
+.btn-login, .btn-signup {
+	background-color: #f9f9f9;
+	color: #333;
+	padding: 5px 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.btn-active {
+	background-color: #333;
+	color: #fff;
+}
+
+.btn-active :hover{
+	color:white;
+}
+
+.content {
+	background-color: #f9f9f9;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.btn-login:hover {
+	color: white;
+}
+.btn-signup:hover {
+	color: white;
+}
+.custom-bg-white {
+	background-color: white;
+	border-radius: 5px;
+}
