@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using CourseDesk.Data;
 using CourseDesk.Models;
 using CourseDesk.Filters;
+using CourseDesk.Repositories;
 using Microsoft.AspNetCore.Http;
 
 
@@ -17,82 +18,31 @@ namespace CourseDesk.Controllers
     public class CourseMaterialsController : Controller
     {
         private readonly DbConnection _context;
-
-        public CourseMaterialsController(DbConnection context)
+        private readonly ICourseMaterialRepository _courseMaterialRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        public CourseMaterialsController(ICourseMaterialRepository courseMaterialRepository , ICategoryRepository categoryRepository)
         {
-            _context = context;
+            _courseMaterialRepository = courseMaterialRepository;
+            _categoryRepository = categoryRepository;
         }
 
-        // GET: CourseMaterials
-        public async Task<IActionResult> Index()
-        {
-            var dbConnection = _context.CoursesMaterials.Include(c => c.CourseCategory).Include(c => c.Person);
-            return View(await dbConnection.ToListAsync());
-        }
-
-        [Authorization(UserType.Instructor)]
-        public IActionResult InstructorCourses()
-        {
-            //if (HttpContext.Session.GetInt32("user_id") == null)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
-            int instructor_id = (int)HttpContext.Session.GetInt32("user_id");
-            var instructorCourses = _context.CoursesMaterials.Where(u => u.PersonId == instructor_id).ToList();
-            return View(@"Views\Instructor\Courses.cshtml", instructorCourses);
-        }
-
-        public IActionResult StudentCourses()
-        {
-            var courses = _context.CoursesMaterials.Include(c => c.CourseCategory).Include(c => c.Person);
-            return View(@"Views\Student\Courses.cshtml",courses.ToList());
-            
-        }
-
-        // GET: CourseMaterials/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.CoursesMaterials == null)
-            {
-                return NotFound();
-            }
-
-            var courseMaterial = await _context.CoursesMaterials
-                .Include(c => c.CourseCategory)
-                .Include(c => c.Person)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (courseMaterial == null)
-            {
-                return NotFound();
-            }
-
-            return View(courseMaterial);
-        }
 
         // GET: CourseMaterials/Create
+        [Authorization(UserType.Instructor)]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return View(@"Views\Instructor\Create.cshtml");
         }
 
-        // POST: CourseMaterials/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: CourseMaterials/Create      
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IFormFile ImageUrl, CourseMaterial courseMaterial)
         {
             if(courseMaterial != null && ImageUrl !=null)
             {
-                if(HttpContext.Session.GetInt32("user_id") == null)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
                 int id = (int)HttpContext.Session.GetInt32("user_id");
-
-                int instructor_id= _context.Users.Where(u => u.Id == id).Select(user => user.Id).FirstOrDefault();
-                courseMaterial.PersonId = instructor_id;
+                courseMaterial.PersonId = id;
                 Debug.WriteLine("Course Details");
 
                 try
@@ -126,109 +76,53 @@ namespace CourseDesk.Controllers
                 }
                 
                 Debug.WriteLine($"course details {courseMaterial.PersonId}, {courseMaterial.Title} ");
-                _context.Add(courseMaterial);
-                await _context.SaveChangesAsync();
+                _courseMaterialRepository.AddCourseMaterial(courseMaterial);
+
                 return RedirectToAction(nameof(InstructorCourses));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", courseMaterial.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_categoryRepository.GetAllCategories(), "Id", "Name", courseMaterial.CategoryId);
             return View(@"Views\Instructor\Create.cshtml",courseMaterial);
         }
 
-        // GET: CourseMaterials/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        /// <summary>
+        /// Represents the courses with respect to particular user
+        /// </summary>
+        /// <returns></returns>
+        [Authorization(UserType.Instructor)]
+        public IActionResult InstructorCourses()
         {
-            if (id == null || _context.CoursesMaterials == null)
-            {
-                return NotFound();
-            }
-
-            var courseMaterial = await _context.CoursesMaterials.FindAsync(id);
-            if (courseMaterial == null)
-            {
-                return NotFound();
-            }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", courseMaterial.CategoryId);
-            return View(courseMaterial);
+            int instructor_id = (int)HttpContext.Session.GetInt32("user_id");
+            var instructorCourses = _context.CoursesMaterials.Where(u => u.PersonId == instructor_id).ToList();
+            return View(@"Views\Instructor\Courses.cshtml", instructorCourses);
         }
 
-        // POST: CourseMaterials/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Price,Duration,Uploaded_at,PersonId,CategoryId")] CourseMaterial courseMaterial)
+        /// <summary>
+        /// Repreents the courses not enrolled by the student
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult StudentCourses()
         {
-            if (id != courseMaterial.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(courseMaterial);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CourseMaterialExists(courseMaterial.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", courseMaterial.CategoryId);
-            return View(courseMaterial);
+            int student_id = (int)HttpContext.Session.GetInt32("user_id");
+            var courses = _courseMaterialRepository.GetCoursesNotEnrolledByStudent(student_id);
+            return View(@"Views\Student\Courses.cshtml", courses.ToList());
         }
 
-        // GET: CourseMaterials/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        /// <summary>
+        /// Returns all the courses from the table
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult AllCourses()
         {
-            if (id == null || _context.CoursesMaterials == null)
-            {
-                return NotFound();
-            }
-
-            var courseMaterial = await _context.CoursesMaterials
-                .Include(c => c.CourseCategory)
-                .Include(c => c.Person)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (courseMaterial == null)
-            {
-                return NotFound();
-            }
-
-            return View(courseMaterial);
+            var courses = _categoryRepository.GetAllCategories();
+            return View(@"Views\Session\AllCourses.cshtml",courses);
         }
 
-        // POST: CourseMaterials/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult GetByCategory(int id)
         {
-            if (_context.CoursesMaterials == null)
-            {
-                return Problem("Entity set 'DbConnection.CoursesMaterials'  is null.");
-            }
-            var courseMaterial = await _context.CoursesMaterials.FindAsync(id);
-            if (courseMaterial != null)
-            {
-                _context.CoursesMaterials.Remove(courseMaterial);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var courses = _courseMaterialRepository.GetCoursesByCategory(id);
+            return View(courses);
         }
 
-        private bool CourseMaterialExists(int id)
-        {
-          return (_context.CoursesMaterials?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+
     }
 }

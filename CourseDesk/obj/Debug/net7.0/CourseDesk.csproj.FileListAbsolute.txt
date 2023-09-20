@@ -251,3 +251,10 @@ C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\obj\Debug\net7.0\refi
 C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\obj\Debug\net7.0\CourseDesk.pdb
 C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\obj\Debug\net7.0\CourseDesk.genruntimeconfig.cache
 C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\obj\Debug\net7.0\ref\CourseDesk.dll
+C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\bin\Debug\net7.0\System.Web.Mvc.dll
+C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\bin\Debug\net7.0\System.Web.Razor.dll
+C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\bin\Debug\net7.0\System.Web.Helpers.dll
+C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\bin\Debug\net7.0\System.Web.WebPages.Deployment.dll
+C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\bin\Debug\net7.0\System.Web.WebPages.Razor.dll
+C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\bin\Debug\net7.0\System.Web.WebPages.dll
+C:\Users\Meghana Jakata\source\repos\CourseDesk\CourseDesk\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using CourseDesk.Data;
 using CourseDesk.Filters;
+using CourseDesk.Repositories;
 
 namespace CourseDesk
 {
@@ -13,6 +14,14 @@ namespace CourseDesk
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSession();
+
+            // Adding Repository Services
+            builder.Services.AddScoped<IUserRepository, UserRepository>(); 
+            builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
+            builder.Services.AddScoped<ICourseMaterialRepository, CourseMaterialRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICartRepository, CartRepository>();
+
             builder.Services.AddDbContext<DbConnection>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection") ?? throw new InvalidOperationException("Connection string 'DbConnection' not found.")));
             /*builder.Services.AddMvc(options =>

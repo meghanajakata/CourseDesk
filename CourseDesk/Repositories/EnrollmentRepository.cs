@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CourseDesk.Repositories
 {
-    public class EnrollmentRepository
+    public class EnrollmentRepository : IEnrollmentRepository
     {
         private readonly DbConnection _context;
         public EnrollmentRepository(DbConnection context)

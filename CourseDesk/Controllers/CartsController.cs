@@ -8,164 +8,92 @@ using Microsoft.EntityFrameworkCore;
 using CourseDesk.Data;
 using CourseDesk.Models;
 using CourseDesk.Filters;
+using System.Diagnostics;
+using CourseDesk.Repositories;
 
 namespace CourseDesk.Controllers
 {
     public class CartsController : Controller
     {
         private readonly DbConnection _context;
-
-        public CartsController(DbConnection context)
+        private readonly ICartRepository _cartRepository;
+        public CartsController(ICartRepository cartRepository)
         {
-            _context = context;
+            _cartRepository = cartRepository;
         }
 
-        // GET: Carts
-        public async Task<IActionResult> Index()
-        {
-            var dbConnection = _context.Cart.Include(c => c.Student);
-            return View(await dbConnection.ToListAsync());
-        }
-
-        // GET: Carts/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Cart == null)
-            {
-                return NotFound();
-            }
-
-            var cart = await _context.Cart
-                .Include(c => c.Student)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (cart == null)
-            {
-                return NotFound();
-            }
-
-            return View(cart);
-        }
-
-        // GET: Carts/Create
-        public IActionResult Create()
-        {
-            ViewData["StudentId"] = new SelectList(_context.Users, "Id", "Email");
-            return View();
-        }
-
-        // POST: Carts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,StudentId,TotalAmount,Carted_at")] Cart cart)
+        [Authorization(UserType.Student)]
+        public ActionResult AddToCart(int id)
         {
-            if (ModelState.IsValid)
+            string _message = "Not yet Added";
+            Debug.WriteLine($"Course Id value is {id}");
+            int student_id = (int)HttpContext.Session.GetInt32("user_id");
+            if (id == null)
             {
-                _context.Add(cart);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                _message = "Course Id value not retrieved";
             }
-            ViewData["StudentId"] = new SelectList(_context.Users, "Id", "Email", cart.StudentId);
-            return View(cart);
+            Cart cartObj = _cartRepository.GetCartByUserId(student_id);
+            if (cartObj == null)
+            {
+                cartObj = new Cart();
+                cartObj.StudentId = student_id;
+                cartObj.Carted_at = DateTime.Today;
+                _cartRepository.AddCart(cartObj);
+            }
+            Debug.WriteLine($"cartObj values are {cartObj.Id}, {cartObj.StudentId}");
+            CartItem cartItem = _cartRepository.GetCartItemByCartIdAndCourseId(cartObj.Id, (int)id);
+            if (cartItem == null)
+            {
+                cartItem = new CartItem();
+                cartItem.CartId = cartObj.Id;
+                cartItem.CourseId = (int)id;
+                _cartRepository.AddCartItem(cartItem);
+                Debug.WriteLine($"Values for CartItem are {cartItem.Id}, {cartItem.CartId}, {cartItem.CourseId}");
+                _message = "Successfully Added to Cart";
+
+            }
+            else if (cartItem != null)
+            {
+                _message = "Course already added to cart";
+            }
+
+            decimal totalCartPrice = _cartRepository.GetTotalAmountOfCartByCartId(cartObj.Id);
+            // Handle case when there are no items in the cart
+            Debug.WriteLine($"Toatal Cart Price is  {totalCartPrice}");
+            cartObj.TotalAmount = totalCartPrice;
+            _cartRepository.UpdateCart(cartObj);
+            return Json(new { message = _message });
+
         }
 
-        // GET: Carts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Cart == null)
-            {
-                return NotFound();
-            }
 
-            var cart = await _context.Cart.FindAsync(id);
-            if (cart == null)
+        /// <summary>
+        /// Removes the item from CartItem table
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IActionResult RemoveFromCart(int? id)
+        {
+            if (HttpContext.Session.GetInt32("user_id") == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "Home");
             }
-            ViewData["StudentId"] = new SelectList(_context.Users, "Id", "Email", cart.StudentId);
-            return View(cart);
+            int student_id = (int)HttpContext.Session.GetInt32("user_id");
+            var cartItem = _cartRepository.GetCartItemByCartItemId((int)id);
+            _cartRepository.RemoveCartItem(cartItem);
+
+            Cart cart = _cartRepository.GetCartByUserId(student_id);
+            cart.TotalAmount = _cartRepository.GetTotalAmountOfCartByCartId(cart.Id);
+            _cartRepository.UpdateCart(cart);
+
+            return RedirectToAction("GoToBag", "Carts");
         }
 
-        // POST: Carts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,StudentId,TotalAmount,Carted_at")] Cart cart)
-        {
-            if (id != cart.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(cart);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CartExists(cart.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["StudentId"] = new SelectList(_context.Users, "Id", "Email", cart.StudentId);
-            return View(cart);
-        }
-
-        // GET: Carts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Cart == null)
-            {
-                return NotFound();
-            }
-
-            var cart = await _context.Cart
-                .Include(c => c.Student)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (cart == null)
-            {
-                return NotFound();
-            }
-
-            return View(cart);
-        }
-
-        // POST: Carts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Cart == null)
-            {
-                return Problem("Entity set 'DbConnection.Cart'  is null.");
-            }
-            var cart = await _context.Cart.FindAsync(id);
-            if (cart != null)
-            {
-                _context.Cart.Remove(cart);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool CartExists(int id)
-        {
-          return (_context.Cart?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-
+        /// <summary>
+        /// Returns the Cart of the user
+        /// </summary>
+        /// <returns></returns>
         [Authorization(UserType.Student)]
         public IActionResult GoToBag()
         {
@@ -175,15 +103,11 @@ namespace CourseDesk.Controllers
             }
             int student_id = (int)HttpContext.Session.GetInt32("user_id");
             //int student_id = 3;
-            Cart cart = _context.Cart.FirstOrDefault(u => u.StudentId == student_id);
-
-           
-
+            //Cart cart = _context.Cart.FirstOrDefault(u => u.StudentId == student_id);
+            Cart cart = _cartRepository.GetCartByUserId(student_id);
             if (cart != null)
             {
-                List<CartItem> cartItems = _context.CartItem.Include(c => c.Course).Where(u => u.CartId == cart.Id).ToList();
-                //decimal totalAmount = GetTotalAmount(cartItems);
-                //cart.TotalAmount = totalAmount;
+                IEnumerable<CartItem> cartItems = _cartRepository.GetCartitemsByCartId(cart.Id);
                 ViewBag.Total = cart.TotalAmount;
                 return View(@"Views\Student\GoToBag.cshtml", cartItems);
             }
@@ -191,14 +115,7 @@ namespace CourseDesk.Controllers
             return NotFound();
         }
 
-        public decimal GetTotalAmount(List<CartItem> model)
-        {
-            decimal totalAmount = 0;
-            foreach(var item in model)
-            {
-                totalAmount = totalAmount + item.Course.Price;
-            }
-            return totalAmount;
-        }
+
     }
 }
+

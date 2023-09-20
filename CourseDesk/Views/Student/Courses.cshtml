@@ -111,10 +111,10 @@
                 console.log("Clicked course Id: " + courseId);
                 $(hideData).modal("hide");
                 $(modalId).modal("show");
-
+                console.log("cart values are " + courseId);
                 $.ajax({
-                    url: '@Url.Action("AddToCart", "CartItems")',
                     type: 'POST',
+                    url: '/Carts/AddToCart/',
                     data: { id: courseId },
                     success: function (result) {
                         // Handle the result from the action, e.g., update content in the modal

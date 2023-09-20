@@ -10,12 +10,13 @@ namespace CourseDesk.Controllers
 {
     public class SessionController : Controller
     {
-        private readonly DbConnection _context;
-        private readonly IUserRepository userRepository;
-        private readonly IEnrollmentRepository enrollmentRepository;
-        public SessionController(DbConnection context)
+        private readonly IUserRepository _userRepository;
+        private readonly IEnrollmentRepository _enrollmentRepository;
+
+        public SessionController(IUserRepository userRepository,IEnrollmentRepository enrollmentRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
+            _enrollmentRepository = enrollmentRepository;
         }
         public IActionResult Index()
         {
@@ -27,15 +28,20 @@ namespace CourseDesk.Controllers
             return View("Auth");
         }
 
+        /// <summary>
+        /// Performs SignUp operation
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult SignUp(User user)
         {
 
-            User userObj = userRepository.GetUserByUsername(user);
+            User userObj = _userRepository.GetUserByUsername(user);
             if (userObj == null)
             {
                 Debug.WriteLine(user.Email);
-                userRepository.AddUser(user);
+                _userRepository.AddUser(user);
                 HttpContext.Session.SetInt32("user_id", user.Id);
                 ViewData["success"] = "Registration is Successful...\n Please login";
                 return View("Auth");
@@ -52,17 +58,22 @@ namespace CourseDesk.Controllers
             return View("Auth");
         }
 
+        /// <summary>
+        /// Performs Login Operation
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        
         [HttpPost]
         public IActionResult Login(User user)
         {
             Debug.WriteLine($"user {user.Username}, {user.Password}");
-            User userObj = userRepository.GetUserByUsernameAndPassword(user);
-
+            User userObj = _userRepository.GetUserByUsernameAndPassword(user.Username, user.Password);
             if (userObj != null)
             {
                 HttpContext.Session.SetInt32("user_id", userObj.Id);
-                HttpContext.Session.SetString("usertype",userObj.User_type);
-                switch(userRepository.GetUserType(user))
+                HttpContext.Session.SetString("user_type",userObj.User_type);
+                switch(_userRepository.GetUserType(userObj))
                 {
                     case "Instructor":
                         return RedirectToAction(nameof(Instructor));
@@ -80,6 +91,16 @@ namespace CourseDesk.Controllers
             return View("Auth",user);
         }
 
+        /// <summary>
+        /// Performs Logout operation
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
         public IActionResult Instructor()
         {
             return View(@"Views\Instructor\dashboard.cshtml");
@@ -89,13 +110,8 @@ namespace CourseDesk.Controllers
         {
             int student_id = (int)HttpContext.Session.GetInt32("user_id");
 
-            var enrolled_courses = enrollmentRepository.GetEnrolledCourses(student_id);
+            var enrolled_courses = _enrollmentRepository.GetEnrolledCourses(student_id);
             return View(@"Views\Student\Welcome.cshtml", enrolled_courses);
-        }
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
         }
     }
 }

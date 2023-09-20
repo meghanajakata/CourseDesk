@@ -32,10 +32,10 @@ namespace CourseDesk.Repositories
         /// </summary>
         /// <param name="sessionUser"></param>
         /// <returns></returns>
-        public User GetUserByUsernameAndPassword(User sessionUser)
+        public User GetUserByUsernameAndPassword(string username, string password)
         {
-            User userObj = _context.Users.Where(u => u.Username == sessionUser.Username && u.Password == sessionUser.Password).FirstOrDefault();
-            
+            User userObj = _context.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            Debug.WriteLine($"User values are {userObj.Username} , {userObj.Password}");
             return userObj;
         }
 
